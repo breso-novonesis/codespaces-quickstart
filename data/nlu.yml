@@ -1,0 +1,41 @@
+version: "3.1"
+
+nlu:
+- intent: printer_not_found
+  examples: |
+    - I am unable to print my document
+    - the printer is not showing up
+    - my computer cannot find the office printer
+    - can't print
+
+- intent: password_reset_request  # Added
+  examples: |
+    - I forgot my password
+    - I need to reset my password
+    - can you help me change my password
+    - my password expired
+    - please reset my login
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you human?
+
+- intent: out_of_scope
+  examples: |
+    - none of those
+    - that's not it
+    - no
+    - something else
+    - you are wrong

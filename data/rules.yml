@@ -1,0 +1,28 @@
+version: "3.1"
+
+rules:
+- rule: Say hello anytime the user says hi
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Answer the bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Ask the user to rephrase when NLU confidence is low # This is the clarification step
+  steps:
+  - intent: nlu_fallback # This is triggered by the FallbackClassifier
+  - action: utter_ask_rephrase
+
+- rule: Create a ticket if the user gives up or says it's out of scope
+  steps:
+  - intent: out_of_scope
+  - action: action_create_servicenow_ticket
+  - action: utter_inform_ticket_number

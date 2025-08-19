@@ -1,0 +1,12 @@
+version: "3.1"
+
+stories:
+- story: Handle printer issue
+  steps:
+  - intent: printer_not_found
+  - action: action_fix_printer # Changed
+
+- story: Handle password reset issue
+  steps:
+  - intent: password_reset_request
+  - action: action_reset_password # Changed

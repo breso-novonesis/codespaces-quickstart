@@ -1,0 +1,43 @@
+version: "3.1"
+
+intents:
+  - printer_not_found
+  - password_reset_request
+  - greet
+  - goodbye
+  - bot_challenge
+  - out_of_scope
+
+actions:
+  - action_fix_printer # Changed
+  - action_reset_password # Changed
+  - action_create_servicenow_ticket
+
+responses:
+  utter_greet:
+    - text: "Hello! I'm your IT support assistant. How can I help you today?"
+  utter_goodbye:
+    - text: "Goodbye!"
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+  utter_ask_rephrase:
+    - text: "I'm sorry, I couldn't understand that. Could you please rephrase?"
+  utter_default:
+    - text: "I'm sorry, I still couldn't understand. I'm escalating this to our support team."
+  
+  # Response for the successful printer fix
+  utter_confirm_printer_fix:
+    - text: "Okay, I've cleared the print queue and reset the connection. Please try printing again."
+
+  # Response for the successful password reset
+  utter_confirm_password_reset_fix:
+    - text: "I've initiated a password reset for your account. Please check your recovery email for a link to set a new password."
+
+  # Response for the failure/fallback case
+  utter_inform_ticket_number:
+    - text: "I was unable to resolve your issue automatically. Your ServiceNow ticket number is {ticket_number}."
+
+slots:
+  ticket_number:
+    type: text
+    mappings: []
